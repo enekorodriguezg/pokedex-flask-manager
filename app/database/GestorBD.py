@@ -19,8 +19,9 @@ class GestorBD:
     def crear_tablas_si_no_existen(self):
         """Lee el archivo schema.sql y crea la estructura si alguna tabla falta"""
         print("Verificando integridad de las tablas...")
+        path_al_schema=os.path.join(Config.BASE_DIR, 'app','database','schema.sql')
         try:
-            with open('app/database/schema.sql', 'r') as f:
+            with open(path_al_schema, 'r') as f:
                 schema = f.read()
             # Ejecuta el script SQL (CREATE TABLE, etc.)
             self.connection.executescript(schema)
