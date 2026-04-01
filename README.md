@@ -37,7 +37,7 @@ Plataforma web desarrollada en **Python/Flask** para la gestión y análisis del
 
 ---
 
-**Nota Académica:** Proyecto desarrollado originalmente por [Tu Nombre] y [Nombre de tu Compañero] como parte del Grado en Ingeniería.
+**Nota Académica:** Proyecto desarrollado originalmente por Eneko Rodríguez, Urko Horas, Aimar Larriba, Iván Salazar y Aitor Cotano como parte de la asignatura de Análisis y Diseño de Sistemas de Información en el grado de Ingeniería Informática de Gestión y Sistemas de Información.
 
 ## ⚖️ Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
