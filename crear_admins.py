@@ -1,3 +1,4 @@
+import hashlib
 import sqlite3
 from config import Config
 
@@ -12,7 +13,9 @@ def crear_admins():
         ('uhoras', 'uhoras', 'Urko', 'Horas', '00000001B', 'uhoras@gmail.com'),
         ('alarriba', 'alarriba', 'Aimar', 'Larriba', '00000002C', 'alarriba@gmail.com'),
         ('acotano', 'acotano', 'Aitor', 'Cotano', '00000003D', 'acotano@gmail.com'),
-        ('isalazar', 'isalazar', 'Iván', 'Salazar', '00000004E', 'isalazar@gmail.com')
+        ('isalazar', 'isalazar', 'Iván', 'Salazar', '00000004E', 'isalazar@gmail.com'),
+        # Cuenta pública para la demo: permite a los visitantes probar el panel de administración
+        ('admin', 'admin', 'Demo', 'Admin', '00000005F', 'admin@demo.local')
     ]
 
     try:
@@ -27,8 +30,11 @@ def crear_admins():
 
         count = 0
         for admin in admins:
+            # El login compara el hash SHA-256 de la contraseña, así que se guarda igual
+            username, password, *resto = admin
+            hashed_pw = hashlib.sha256(password.encode()).hexdigest()
             try:
-                cursor.execute(sql, admin)
+                cursor.execute(sql, (username, hashed_pw, *resto))
                 print(f"✅ Usuario creado: {admin[0]}")
                 count += 1
             except sqlite3.IntegrityError as e:

@@ -15,6 +15,18 @@ Plataforma web desarrollada en **Python/Flask** para la gestión y análisis del
 * **Persistencia:** SQLite (Sincronización vía pokebase API)
 * **Frontend:** Jinja2 templates / CSS3 Custom Properties
 
+## 🎮 Demo
+
+Para probar todas las funciones, incluido el panel de administración (aprobar solicitudes de registro, gestionar usuarios…), inicia sesión con la cuenta de demostración:
+
+| Usuario | Contraseña | Rol |
+|---|---|---|
+| `admin` | `admin` | Administrador |
+
+También puedes registrar una cuenta nueva y aprobarla tú mismo desde el panel de administración.
+
+> La demo restaura la base de datos original en cada reinicio: los cambios y las cuentas creadas no se conservan. No introduzcas datos personales reales.
+
 ## ⚙️ Instalación y Uso
 
 1.  **Preparación del entorno:**
