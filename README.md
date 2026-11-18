@@ -1,4 +1,4 @@
-# Pokedex Ecosystem - Advanced Data Synchronization & Management
+# Pokédex Ecosystem - Advanced Data Synchronization & Management
 
 Este proyecto es una **adaptación y evolución profesional** de un trabajo grupal realizado originalmente para la asignatura **Análisis y Diseño de Sistemas de Información (ADSI)**. La versión presente en este repositorio ha sido refactorizada para cumplir con estándares de arquitectura limpia y gestión automatizada de datos.
 
@@ -6,16 +6,18 @@ Este proyecto es una **adaptación y evolución profesional** de un trabajo grup
 Plataforma web desarrollada en **Python/Flask** para la gestión y análisis del ecosistema Pokémon. El sistema destaca por su **arquitectura de datos auto-reparable** sincronizada con la PokeAPI externa.
 
 ## 🛠️ Características de Ingeniería
-* **Auto-Healable Architecture:** Implementación de un motor de escaneo en el `GestorBD` que verifica la integridad de la base de datos local (SQLite). Si detecta registros incompletos, activa un trabajador de sincronización que consume la **PokeAPI** para hidratar y persistir los datos faltantes automáticamente.
+* **Arquitectura auto-reparable (self-healing):** Implementación de un motor de escaneo en el `GestorBD` que verifica la integridad de la base de datos local (SQLite). Si detecta registros incompletos, activa un trabajador de sincronización que consume la **PokeAPI** para hidratar y persistir los datos faltantes automáticamente.
 * **Modularidad con Blueprints:** Aplicación estructurada mediante el patrón **Factory** y **Blueprints**, permitiendo el aislamiento total de componentes (Admin, Equipos, Chatbot, Compatibilidad de Tipos).
 * **Persistencia Robusta:** Esquema SQL avanzado que gestiona relaciones complejas como cadenas evolutivas y multiplicadores de daño dinámicos por tipo.
 
 ## 🏗️ Stack Tecnológico
 * **Backend:** Python 3.12 / Flask
-* **Persistencia:** SQLite (Sincronización vía pokebase API)
+* **Persistencia:** SQLite (sincronización con la PokeAPI mediante `pokebase`)
 * **Frontend:** Jinja2 templates / CSS3 Custom Properties
 
 ## 🎮 Demo
+
+**Demo en línea:** <https://pokedex-flask-manager.onrender.com>
 
 Para probar todas las funciones, incluido el panel de administración (aprobar solicitudes de registro, gestionar usuarios…), inicia sesión con la cuenta de demostración:
 
@@ -38,7 +40,7 @@ También puedes registrar una cuenta nueva y aprobarla tú mismo desde el panel 
     ```
 
 2.  **Configuración de Rutas:**
-    El sistema utiliza rutas absolutas configuradas en `config.py` para asegurar la portabilidad de la base de datos y los esquemas SQL. Asegúrate de que el archivo `identifier.sqlite` se genere correctamente en la raíz.
+    `config.py` construye las rutas de la base de datos y de los esquemas SQL a partir de la carpeta del proyecto, así que la aplicación funciona desde cualquier ubicación. Asegúrate de que el archivo `identifier.sqlite` se genere correctamente en la raíz.
 
 3.  **Ejecución del Servidor:**
     Lanza la aplicación ejecutando el script de entrada:
